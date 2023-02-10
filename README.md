@@ -1,4 +1,26 @@
-# VSCode Containerized Development: C++ with CMake and Conan
+#  C++ Conan example 1
+
+Build steps to follow: 
+
+## Windows with Visual Studio:
+    cd examples/libraries/dear-imgui/basic
+    mkdir build
+    cd build
+    conan install .. -s build_type=Release
+    conan install .. -s build_type=Debug
+    cmake .. -G "Visual Studio 16 2019" -A "x64"
+    cmake --build . --config Release
+    cd Release
+    dear-imgui-conan
+
+## Linux:
+    cd examples/libraries/dear-imgui/basic
+    mkdir build
+    cd build
+    conan install .. -s build_type=Release
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+    cmake --build .
+    ./dear-imgui-conan
 
 > See [here](https://github.com/axel-op/vscode-containerdevelopment-cpp-vcpkg) for a similar example with vcpkg
 
