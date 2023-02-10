@@ -6,7 +6,9 @@ Build steps to follow:
     cd examples/libraries/dear-imgui/basic
     mkdir build
     cd build
-    conan install .. -s build_type=Release
+    conan install .. -s build_type=Release 
+    #Add below parameters if above fails
+    #-r {{repo_name}} --build=missing 
     conan install .. -s build_type=Debug
     cmake .. -G "Visual Studio 16 2019" -A "x64"
     cmake --build . --config Release

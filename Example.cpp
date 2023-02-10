@@ -3,7 +3,8 @@
 using namespace std;
 
 int square(int number)
-{
+{	
+	cout<<"Test 123";
 	return number * number;
 }
 
