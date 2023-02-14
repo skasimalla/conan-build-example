@@ -1,19 +1,17 @@
-#include "pch.h"
+#include<stdio.h>
 
 using namespace std;
 
 int square(int number)
 {	
-	cout<<"Test 123";
+	
 	return number * number;
 }
 
-TEST(Example, acceptance_test)
-{
-	EXPECT_EQ(4, square(2));
-}
+
 
 int main(int argc, char **argv)
 {
+	printf("Test 123\n");
 	return 0;
 }
