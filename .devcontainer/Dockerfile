@@ -1,7 +1,7 @@
 #Sam Kasimalla
 FROM alpine:latest
 
-LABEL maintainer="Michele Adduci <adduci@tutanota.com>"
+LABEL maintainer="Sam Kasimalla"
 
 VOLUME "/project"
 
