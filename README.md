@@ -6,7 +6,7 @@ Build steps to follow:
     ./build.sh
 
 ## How to use it
-    Read the build.sh it should pretty much explain everything
+Read the build.sh it should pretty much explain everything
 
 ## How to use it
 
