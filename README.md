@@ -8,9 +8,11 @@ Build steps to follow:
 ## How to use it
 Read the build.sh it should pretty much explain everything
 
-## How to use it
+## Pre requisites
 
 If you have never used devcontainers in VSCode, it's the BEST thing ever you can develop code on your machine without installing it's SDK. 
 
-You need to have [Visual Studio Code](https://code.visualstudio.com/) on your computer
-and the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) plugin installed on your VS Code.
+You need to have 
+[VSCode ](https://code.visualstudio.com/) on your computer,
+Docker on your computer, and the 
+[Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) plugin installed on your VS Code.
