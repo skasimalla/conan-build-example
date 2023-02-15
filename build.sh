@@ -16,6 +16,9 @@ cmake --build . --config Release
 
 ./bin/Example 
 
-conan remote add test-conan-local-dev  https://artifactory-unified.soleng-us.jfrog.team/artifactory/api/conan/test-conan-local-dev
-conan user -p AP9dFgyhMsyBASfQ6DgrN8GXoL3 -r test-conan-local-dev sam
+#url= https://artifactory-unified.soleng-us.jfrog.team/artifactory/api/conan/test-conan-local-dev
+#password=
+
+conan remote add test-conan-local-dev  $url
+conan user -p $password -r test-conan-local-dev sam
 conan upload bin/Example -r test-conan-local-dev --all
