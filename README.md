@@ -10,7 +10,7 @@ Read the build.sh it should pretty much explain everything
 
 ## Pre requisites
 
-If you have never used devcontainers in VSCode, it's the BEST thing ever you can develop code on your machine without installing it's SDK. 
+If you have never used devcontainers in VSCode, it's AMAZING, you can develop code on your machine without installing it's SDK as long as you have Docker on your machine. 
 
 You need to have 
 [VSCode ](https://code.visualstudio.com/) on your computer,
