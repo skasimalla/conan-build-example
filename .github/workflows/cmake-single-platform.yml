@@ -28,6 +28,12 @@ jobs:
    
     - name: Install Conan Profile
       run: conan profile detect
+    - name: Create Build Directory
+      run: mkdir -p build
+    - name: Generate ConanBuildInfo
+      run: conan install .. --build=missing
+      working-directory: /home/runner/work/cpp-conan-helloworld/cpp-conan-helloworld/build
+
 
 
     - name: Conan version
