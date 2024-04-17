@@ -26,9 +26,8 @@ jobs:
       id: conan
       uses: turtlebrowser/get-conan@main
    
-    - name: Install dependencies with Conan
-      run: conan install .. --build=missing
-      working-directory: /home/runner/work/cpp-conan-helloworld/cpp-conan-helloworld/build
+    - name: Install Conan Profile
+      run: conan install .. --profile=gcc_x86
 
 
     - name: Conan version
