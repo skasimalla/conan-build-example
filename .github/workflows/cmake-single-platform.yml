@@ -25,7 +25,10 @@ jobs:
     - name: Install Conan
       id: conan
       uses: turtlebrowser/get-conan@main
-   
+    - name: get-cmake
+      uses: lukka/get-cmake@v3.29.2
+
+             
     - name: Install Conan Profile
       run: conan profile detect
     - name: Create Build Directory
