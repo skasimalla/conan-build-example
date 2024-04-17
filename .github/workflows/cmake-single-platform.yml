@@ -27,7 +27,7 @@ jobs:
       uses: turtlebrowser/get-conan@main
    
     - name: Install Conan Profile
-      run: conan install . --profile=gcc_x86
+      run: conan profile detect
 
 
     - name: Conan version
