@@ -3,15 +3,15 @@ on: [push]
 
 jobs:
   build:
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
    
     steps:
       # This action checks out the code from the repository
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      #- name: Install Conan
-      #  uses: turtlebrowser/get-conan@main
+      - name: Install Conan
+        uses: turtlebrowser/get-conan@main
 
       # This action sets up the JFrog CLI with the Artifactory URL and access token     
       - name: Install and config JF CLI
@@ -28,20 +28,12 @@ jobs:
       - run: |
           jf rt ping
 
-          apk update && \
-          apk upgrade && \
-          apk --update add \
-              gcc \
-              g++ \
+          sudo apt-get install gcc g++ \
               build-base \
               cmake \
-              bash \
               libstdc++ \
-              cppcheck \
-              py-pip && \
-              pip install conan && \
-          rm -rf /var/cache/apk/*
-
+              cppcheck 
+              
           rm -rf build
           mkdir -p build
           cd build
