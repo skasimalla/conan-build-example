@@ -39,7 +39,7 @@ jobs:
           cmake --build .
 
           conan remote add conan-dev-local https://soleng.jfrog.io/artifactory/conan-dev-local/
-          conan remote login conan-dev-local samk -p ${{ secrets.ARTIFACTORY_PASSWORD }}
+          conan remote login conan-dev-local sam -p ${{ secrets.ARTIFACTORY_PASSWORD }}
           
           conan list --graph=create.json --graph-binaries=build --format=json > pkglist.json
           conan upload --list=pkglist.json -r=conan-dev-local -c
