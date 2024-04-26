@@ -28,30 +28,16 @@ jobs:
       - run: |
           jf rt ping
 
-          sudo apt-get install gcc g++ \
-              cmake  
+          sudo apt-get install gcc g++ cmake  
               
-          rm -rf build
-          mkdir -p build
+          conan profile detect --force
+          conan install . --output-folder=build --build=missing
           cd build
-          #conan install .. -s build_type=Release --build=missing
-          #-r {{repo_name}} 
+          cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+          cmake --build .
           
-          cp ../src/* . 
-          cp ../conanfile.txt .
-          cp ../CMakeLists.txt .
-          ls -lrt
-
-          conan profile detect
-          conan install . -s build_type=Debug --build=missing
-          cmake ./CMakeLists.txt -G "Visual Studio 16 2019" -A "x64"
-          cmake .
-          cmake --build . --config Release
-          
-          ./bin/Example 
-          
-          conan remote add test-conan-local-dev  $url
-          conan user -p $password -r test-conan-local-dev sam
+          conan remote add conan-local ${{ secrets.ARTIFACTORY_URL }}/artifactory/api/conan/conan-dev-local
+          conan user -p ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }} -r conan-dev-local sam
           conan upload bin/Example -r test-conan-local-dev --all
 
 
