@@ -3,15 +3,15 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
    
     steps:
       # This action checks out the code from the repository
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Install Conan
-        uses: turtlebrowser/get-conan@main
+      #- name: Install Conan
+      #  uses: turtlebrowser/get-conan@main
 
       # This action sets up the JFrog CLI with the Artifactory URL and access token     
       - name: Install and config JF CLI
