@@ -16,3 +16,7 @@ You need to have
 [VSCode ](https://code.visualstudio.com/) on your computer,
 Docker on your computer, and the 
 [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) plugin installed on your VS Code.
+
+
+
+brew install conan cmake
