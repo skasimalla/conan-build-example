@@ -38,11 +38,8 @@ jobs:
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
           cmake --build .
 
-          conan remote add conan-dev-local https://soleng.jfrog.io/artifactory/conan-dev-local/
-          conan remote login conan-dev-local sam -p ${{ secrets.ARTIFACTORY_PASSWORD }}
-          
-          conan list --graph=create.json --graph-binaries=build --format=json > pkglist.json
-          conan upload --list=pkglist.json -r=conan-dev-local -c
+          jf rt build-publish compressor 1.0.${{github.run_number}
+          jf rt build-scan compressor 1.0.${{github.run_number}}
 
           
           #jf npmc --repo-deploy=lego-npm-virt --repo-resolve=lego-npm-remote
