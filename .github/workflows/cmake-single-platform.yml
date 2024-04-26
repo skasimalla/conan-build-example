@@ -35,11 +35,12 @@ jobs:
           cd build
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
           cmake --build .
-          
-          conan remote add conan-local ${{ secrets.ARTIFACTORY_URL }}/artifactory/api/conan/conan-dev-local
-          conan user -p ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }} -r conan-dev-local sam
-          conan upload bin/Example -r test-conan-local-dev --all
 
+          conan remote add conan-local ${{ secrets.ARTIFACTORY_URL }}/artifactory/api/conan/conan-dev-local
+          conan remote login conan-dev-local sam -p ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
+          
+          conan list --graph=create.json --graph-binaries=build --format=json > pkglist.json
+          conan upload --list=pkglist.json -r=conan-dev-local -c
 
           
           #jf npmc --repo-deploy=lego-npm-virt --repo-resolve=lego-npm-remote
