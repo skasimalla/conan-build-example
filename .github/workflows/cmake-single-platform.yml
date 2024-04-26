@@ -36,7 +36,7 @@ jobs:
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
           cmake --build .
 
-          conan remote add conan-dev-local ${{ secrets.ARTIFACTORY_URL }}/artifactory/api/conan/conan-dev-local
+          conan remote add conan-dev-local https://soleng.jfrog.io/artifactory/conan-dev-local/
           conan remote login conan-dev-local samk -p ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
           
           conan list --graph=create.json --graph-binaries=build --format=json > pkglist.json
