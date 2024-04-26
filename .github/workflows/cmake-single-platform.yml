@@ -38,7 +38,7 @@ jobs:
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
           cmake --build .
 
-          jf rt build-publish compressor 1.0.${{github.run_number}
+          jf rt build-publish compressor 1.0.${{github.run_number}}
           jf rt build-scan compressor 1.0.${{github.run_number}}
 
           
