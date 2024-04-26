@@ -29,9 +29,7 @@ jobs:
           jf rt ping
 
           sudo apt-get install gcc g++ \
-              cmake \
-              libstdc++ \
-              cppcheck 
+              cmake  
               
           rm -rf build
           mkdir -p build
