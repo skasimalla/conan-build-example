@@ -30,14 +30,16 @@ jobs:
 
           sudo apt-get install gcc g++ cmake  
               
+          mkdir build
           conan profile detect --force
           conan install . --output-folder=build --build=missing
+          
           cd build
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
           cmake --build .
 
           conan remote add conan-dev-local https://soleng.jfrog.io/artifactory/conan-dev-local/
-          conan remote login conan-dev-local samk -p ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
+          conan remote login conan-dev-local samk -p ${{ secrets.ARTIFACTORY_PASSWORD }}
           
           conan list --graph=create.json --graph-binaries=build --format=json > pkglist.json
           conan upload --list=pkglist.json -r=conan-dev-local -c
