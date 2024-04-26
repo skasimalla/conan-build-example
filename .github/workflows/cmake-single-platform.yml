@@ -38,7 +38,8 @@ jobs:
           cp ../conanfile.txt .
           cp ../CMakeLists.txt .
           ls -lrt
-          
+
+          conan profile detect
           conan install . -s build_type=Debug --build=missing
           cmake ./CMakeLists.txt -G "Visual Studio 16 2019" -A "x64"
           cmake .
