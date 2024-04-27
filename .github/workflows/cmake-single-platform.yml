@@ -38,8 +38,10 @@ jobs:
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
           cmake --build .
 
-          jf rt build-publish conan-dev-local/compressor 1.0.${{github.run_number}}
-          jf rt build-scan conan-dev-local/compressor 1.0.${{github.run_number}}
+          jf rt upload compressor samk-generic-local/compressor --build-name=compressor-b --build-number=1.0.${{github.run_number}}
+          jf rt build-publish samk-generic-local/compressor 1.0.${{github.run_number}}
+          jf rt build-scan samk-generic-local/compressor 1.0.${{github.run_number}}
+          
 
           
           #jf npmc --repo-deploy=lego-npm-virt --repo-resolve=lego-npm-remote
