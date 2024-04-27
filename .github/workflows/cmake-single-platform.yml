@@ -38,7 +38,7 @@ jobs:
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
           cmake --build .
 
-          jf rt upload compressor samk-generic-local/compressor --build-name=compressor-b --build-number=1.0.${{github.run_number}}
+          jf rt upload compressor samk-generic-local/compressor/1.0.${{github.run_number}} --build-name=compressor-build --build-number=1.0.${{github.run_number}}
           jf rt build-publish samk-generic-local/compressor 1.0.${{github.run_number}}
           jf rt build-scan samk-generic-local/compressor 1.0.${{github.run_number}}
           
