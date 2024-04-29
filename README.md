@@ -1,4 +1,6 @@
-#  C++ Conan hello world example
+#  Conan hello world example
+
+This projest shows you how to build a conan project (just build, no packaging)
 
 Build steps to follow: 
 
