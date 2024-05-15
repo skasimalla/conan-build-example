@@ -11,7 +11,11 @@ cd build
 cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 
-echo 1.0.2
-#jf rt upload compressor samk-generic-local/compressor/1.0.${{github.run_number}} --build-name=compressor-build --build-number=1.0.${{github.run_number}}
-#jf rt build-publish samk-generic-local/compressor 1.0.${{github.run_number}}
-#jf rt build-scan samk-generic-local/compressor 1.0.${{github.run_number}}
+BUILD_NUMBER=1.0.51
+
+echo $BUILD_NUMBER
+
+
+jf rt upload compressor samk-generic-local/compressor/1.0.${{BUILD_NUMBER}} --build-name=compressor-build --build-number=1.0.${{BUILD_NUMBER}}
+jf rt build-publish samk-generic-local/compressor 1.0.${{BUILD_NUMBER}}
+jf rt build-scan samk-generic-local/compressor 1.0.${{BUILD_NUMBER}}
