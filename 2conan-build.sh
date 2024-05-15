@@ -4,9 +4,7 @@ apt-get install gcc g++ cmake
     
 rm -rf build
 mkdir -p build
-cd build
-#conan install .. -s build_type=Release --build=missing
-#-r {{repo_name}} 
+
 
 cp ../src/* . 
 cp ../conanfile.txt .
@@ -17,6 +15,7 @@ ls -lrt
 conan profile detect --force
 conan install . --output-folder=build --build=missing
 
+cd build
 cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 
