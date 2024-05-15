@@ -1,3 +1,4 @@
+echo $URL
 jf c add $SERVER_ID --url=$URL --access-token=$ACCESS_TOKEN --interactive=false
 jf rt ping
 
