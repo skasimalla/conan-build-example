@@ -1,19 +1,30 @@
 echo "Starting build"
-echo $URL
-jf c add $SERVER_ID --url=$URL --access-token=$ACCESS_TOKEN --interactive=false
-jf rt ping
 
 apt-get install gcc g++ cmake  
     
-mkdir build
+rm -rf build
+mkdir -p build
+cd build
+#conan install .. -s build_type=Release --build=missing
+#-r {{repo_name}} 
+
+cp ../src/* . 
+cp ../conanfile.txt .
+cp ../CMakeLists.txt .
+ls -lrt
+
+
 conan profile detect --force
 conan install . --output-folder=build --build=missing
 
-cd build
 cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 
-#BUILD_NUMBER=51
+#Uploading to RT
+
+echo $URL
+jf c add $SERVER_ID --url=$URL --access-token=$ACCESS_TOKEN --interactive=false
+jf rt ping
 
 echo $BUILD_NUMBER
 
@@ -21,6 +32,7 @@ export JFROG_CLI_BUILD_URL=http://google.com
 export JFROG_CLI_BUILD_NAME=theringbuild
 export JFROG_CLI_BUILD_NUMBER=$(date +%s)
 
+pwd
 
 jf rt upload compressor samk-generic-local/compressor-tc/1.0.${BUILD_NUMBER} --build-name=compressor-build --build-number=1.0.${BUILD_NUMBER}
 jf rt build-publish samk-generic-local/compressor-tc 1.0.${BUILD_NUMBER}
