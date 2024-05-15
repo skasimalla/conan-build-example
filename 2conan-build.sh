@@ -17,6 +17,10 @@ BUILD_NUMBER=51
 
 echo $BUILD_NUMBER
 
+export JFROG_CLI_BUILD_URL=http://google.com
+export JFROG_CLI_BUILD_NAME=theringbuild
+export JFROG_CLI_BUILD_NUMBER=$(date +%s)
+
 
 jf rt upload compressor samk-generic-local/compressor/1.0.${BUILD_NUMBER} --build-name=compressor-build --build-number=1.0.${BUILD_NUMBER}
 jf rt build-publish samk-generic-local/compressor 1.0.${BUILD_NUMBER}
