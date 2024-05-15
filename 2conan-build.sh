@@ -1,7 +1,7 @@
 jf c add $SERVER_ID --url=$URL --access-token=$ACCESS_TOKEN --interactive=false
 jf rt ping
 
-sudo apt-get install gcc g++ cmake  
+apt-get install gcc g++ cmake  
     
 mkdir build
 conan profile detect --force
