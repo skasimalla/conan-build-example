@@ -33,11 +33,11 @@ export JFROG_CLI_BUILD_NUMBER=$BUILD_NUMBER
 
 pwd
 
-
+zip -r compressor.zip . 
 jf rt build-add-git samk-generic-local 1.0.${BUILD_NUMBER}
 jf rt build-collect-env samk-generic-local 1.0.${BUILD_NUMBER}
 jf rt bad compressor-tc 1.0.${BUILD_NUMBER} ./
 
-jf rt upload compressor samk-generic-local/compressor-tc/1.0.${BUILD_NUMBER} --build-name=compressor-build --build-number=1.0.${BUILD_NUMBER}
+jf rt upload compressor.zip samk-generic-local/compressor-tc/compressor-1.0.${BUILD_NUMBER}.zip --build-name=compressor-tc --build-number=1.0.${BUILD_NUMBER}
 jf rt build-publish samk-generic-local/compressor-tc 1.0.${BUILD_NUMBER}
 jf rt build-scan samk-generic-local/compressor-tc 1.0.${BUILD_NUMBER}
