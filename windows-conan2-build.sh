@@ -6,9 +6,7 @@ rm -rf build
 mkdir -p build
 
 
-cp ../src/* . 
-cp ../conanfile.txt .
-cp ../CMakeLists.txt .
+cp ../* . 
 ls -lrt
 
 
