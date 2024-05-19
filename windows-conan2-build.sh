@@ -11,7 +11,9 @@ conan install . --output-folder=build --build=missing
 
 cd build
 
-cp ../* . 
+cp ../src/* . 
+cp ../conanfile.txt .
+cp ../CMakeLists.txt .
 ls -lrt
 
 cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
