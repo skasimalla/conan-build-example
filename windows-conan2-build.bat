@@ -7,6 +7,7 @@ REM $env:Path += ';C:\Program Files\CMake\bin'
 
 SET PATH=%PATH%;C:\Program Files\Conan\conan
 SET PATH=%PATH%;C:\Program Files\CMake\bin
+SET PATH=%PATH%;C:\ProgramData\chocolatey\bin
 
 
 REM #apt-get install gcc g++ cmake  
