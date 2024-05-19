@@ -1,5 +1,14 @@
 echo "Starting build"
 
+#THis shoulld go in the agent heating script
+REM $env:Path += ';C:\Program Files\Conan\conan'
+REM $env:Path += ';C:\Program Files\CMake\bin'
+
+
+SET PATH=%PATH%;C:\Program Files\Conan\conan
+SET PATH=%PATH%;C:\Program Files\CMake\bin
+
+
 #apt-get install gcc g++ cmake  
     
 rm -rf build
@@ -27,9 +36,9 @@ jf rt ping
 
 echo $BUILD_NUMBER
 
-export JFROG_CLI_BUILD_URL=http://mill.jfrog.info:13132/
-export JFROG_CLI_BUILD_NAME=compressor-tc
-export JFROG_CLI_BUILD_NUMBER=$BUILD_NUMBER
+REM export JFROG_CLI_BUILD_URL=http://mill.jfrog.info:13132/
+REM export JFROG_CLI_BUILD_NAME=compressor-tc
+REM export JFROG_CLI_BUILD_NUMBER=$BUILD_NUMBER
 
 pwd
 
